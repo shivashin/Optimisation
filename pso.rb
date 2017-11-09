@@ -23,23 +23,45 @@ def update_velocity(x1, x2, vx1, vx2, p, g, w, c1, c2)
 end
 
 def optimization()
-
+  p "hoge"
+  #for p in ps do
+  #  i = 0
+  #  personal_best_score[i] = evaluation(p[i][0],p[i][1])
+  #  i++
+  #end
+  #best_particle = personal_best_score.min
+  #for p in personal_best_score do
+  #  i = 0
+  #  if best_particle = p[i] then
+  #    gloval_best_position = [p[i][0], p[i][1]]
+  #  end
+  #  i++
+  #end
 end
 
 
-if __FILE__ == $0
+if __FILE__ == $0 then 
   ## inertia constant
   w = 0.5
   ## particle ratio
-  c1 = 2.0
-  c2 = 2.0
+  c1 = 1.5
+  c2 = 1.5
   ## max particle number
   num = 100
+  ## max num
+  max = 5
+  min = -5
   ## range number for x1 and x2
-  min_x1, max_x1 = -5, 5
-  min_x2, max_x2 = -5, 5
+  min_x1, max_x1 = min, max
+  min_x2, max_x2 = min, max
   ## search space
-  search = [{min_x: min_x, max_x: max_x}, {min_y: min_y, max_y: max_y}]
+  ps = Array.new(2).map{Array.new(num){Random.rand(min,max)}}
+  vs = Array.new(2).map{Array.new(num,0.0)}
+  personal_best_positions = Marshal.load(Marshal.dump(ps))
+  personal_best_score = Array.new(num)
+  gloval_best_position = Array.new(2)
   ## max generation
   max_genes = 30
+  ## calculate value
+  optimization()
 end

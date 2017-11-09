@@ -15,7 +15,7 @@ def update_position(x, y, vx, vy):
     return new_x, new_y
 
 #粒子の速度の更新を行う関数
-def update_velocity(x, y, vx, vy, p, g, w=0.5, ro_max=0.14):
+def update_velocity(x, y, vx, vy, p, g, w=0.5, ro_max=1.5):
     #パラメーターroはランダムに与える
     ro1 = random.uniform(0, ro_max)
     ro2 = random.uniform(0, ro_max)
@@ -38,7 +38,7 @@ def main():
     best_particle = np.argmin(personal_best_scores)
     global_best_position = personal_best_positions[best_particle]
 
-    T = 30  #制限時間(ループの回数)
+    T = 300  #制限時間(ループの回数)
     for t in range(T):
         for n in range(N):
             x, y = ps[n]["x"], ps[n]["y"]
