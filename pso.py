@@ -34,6 +34,7 @@ def main():
         "y": random.uniform(y_min, y_max)} for i in range(N)]
     vs = [{"x": 0.0, "y": 0.0} for i in range(N)]
     personal_best_positions = list(ps)
+    print (personal_best_positions)
     personal_best_scores = [criterion(p["x"], p["y"]) for p in ps]
     best_particle = np.argmin(personal_best_scores)
     global_best_position = personal_best_positions[best_particle]
