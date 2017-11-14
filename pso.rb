@@ -97,7 +97,7 @@ if __FILE__ == $0 then
   hoge[:x2] = 0.0
   gloval_best_position << hoge
   ## max generation
-  max_genes = 300
+  max_genes = 200
   ## calculate value
   optimization(ps, vs, personal_best_positions, personal_best_score, gloval_best_position, max_genes, num, w, c1, c2)
 end
