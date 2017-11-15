@@ -53,17 +53,21 @@ def optimization(ps, vs, personal_best_positions, personal_best_score, gloval_be
         gloval_best_position[0][:x2] = personal_best_positions[i][:x2]
       end
     end
+    if  personal_best_score.min == 0 then
+      p t
+      p gloval_best_position
+      p personal_best_score.min
+      break
+    end
   end
-  p gloval_best_position
-  p personal_best_score.min
 end
 
 
 if __FILE__ == $0 then 
   ## inertia constant
-  w = 0.5
+  w = 0.1
   ## particle ratio
-  c1 = 1.6
+  c1 = 1.5
   c2 = 1.5
   ## max particle number
   num = 100
@@ -97,7 +101,7 @@ if __FILE__ == $0 then
   hoge[:x2] = 0.0
   gloval_best_position << hoge
   ## max generation
-  max_genes = 200
+  max_genes = 120
   ## calculate value
   optimization(ps, vs, personal_best_positions, personal_best_score, gloval_best_position, max_genes, num, w, c1, c2)
 end
